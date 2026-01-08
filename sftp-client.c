@@ -55,6 +55,16 @@
 #include "sftp-common.h"
 #include "sftp-client.h"
 
+#ifdef AIX
+#define stat stat64
+#define dirent dirent64
+#define DIR DIR64
+#define opendir opendir64
+#define readdir readdir64
+#define closedir closedir64
+#define lstat lstat64
+#endif
+
 extern volatile sig_atomic_t interrupted;
 extern int showprogress;
 

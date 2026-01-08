@@ -53,6 +53,16 @@
 #include "sftp.h"
 #include "sftp-common.h"
 
+#ifdef AIX
+#define stat stat64
+#define DIR DIR64
+#define dirent dirent64
+#define readdir readdir64
+#define closedir closedir64
+#define opendir opendir64
+#define lstat lstat64
+#endif
+
 char *sftp_realpath(const char *, char *); /* sftp-realpath.c */
 
 /* Maximum data read that we are willing to accept */

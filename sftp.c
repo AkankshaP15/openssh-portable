@@ -62,6 +62,10 @@ typedef void EditLine;
 #include "sftp-client.h"
 #include "sftp-usergroup.h"
 
+#ifdef AIX
+#define stat stat64
+#endif
+
 /* File to read commands from */
 FILE* infile;
 

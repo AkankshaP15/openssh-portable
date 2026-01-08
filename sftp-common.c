@@ -48,6 +48,10 @@
 #include "sftp.h"
 #include "sftp-common.h"
 
+#ifdef AIX
+#define stat stat64
+#endif
+
 /* Clear contents of attributes structure */
 void
 attrib_clear(Attrib *a)

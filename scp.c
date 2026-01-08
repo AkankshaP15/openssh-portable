@@ -122,6 +122,14 @@
 #include "sftp-common.h"
 #include "sftp-client.h"
 
+#ifdef AIX
+#define DIR DIR64
+#define dirent dirent64
+#define opendir opendir64
+#define closedir closedir64
+#define readdir readdir64
+#endif
+
 extern char *__progname;
 
 #define COPY_BUFLEN	16384
