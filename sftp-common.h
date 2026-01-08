@@ -28,6 +28,10 @@
 /* Maximum packet that we are willing to send/accept */
 #define SFTP_MAX_MSG_LENGTH	(256 * 1024)
 
+#ifdef AIX
+#define stat stat64
+#endif
+
 struct sshbuf;
 typedef struct Attrib Attrib;
 

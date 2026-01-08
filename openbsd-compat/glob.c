@@ -139,6 +139,16 @@ typedef char Char;
 #define	GLOB_LIMIT_STAT		2048
 #define	GLOB_LIMIT_READDIR	16384
 
+#ifdef AIX
+#define stat stat64
+#define DIR DIR64
+#define dirent dirent64
+#define readdir readdir64
+#define closedir closedir64
+#define opendir opendir64
+#define lstat lstat64
+#endif
+
 struct glob_lim {
 	size_t	glim_malloc;
 	size_t	glim_stat;
