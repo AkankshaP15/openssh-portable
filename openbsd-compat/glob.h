@@ -48,6 +48,10 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+#ifdef AIX
+#define stat stat64
+#endif
+
 # define glob_t _ssh_compat_glob_t
 # define glob(a, b, c, d)  _ssh__compat_glob(a, b, c, d)
 # define globfree(a)  _ssh__compat_globfree(a)

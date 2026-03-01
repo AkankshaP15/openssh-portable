@@ -30,6 +30,15 @@
 #include <string.h>
 #ifdef HAVE_DIRENT_H
 # include <dirent.h>
+
+#ifdef AIX
+#define dirent dirent64
+#define DIR DIR64
+#define opendir opendir64
+#define readdir readdir64
+#define closedir closedir64
+#endif
+
 # define NAMLEN(dirent) strlen((dirent)->d_name)
 #else
 # define dirent direct
