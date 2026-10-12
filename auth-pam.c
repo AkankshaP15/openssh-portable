@@ -68,10 +68,10 @@
 #endif
 
 /* OpenGroup RFC86.0 and XSSO specify no "const" on arguments */
-#ifdef PAM_SUN_CODEBASE
-# define sshpam_const		/* Solaris, HP-UX, SunOS */
+#if defined(PAM_SUN_CODEBASE) || defined(_AIX)
+# define sshpam_const		/* Solaris, HP-UX, SunOS, AIX */
 #else
-# define sshpam_const	const	/* LinuxPAM, OpenPAM, AIX */
+# define sshpam_const	const	/* LinuxPAM, OpenPAM */
 #endif
 
 /* Ambiguity in spec: is it an array of pointers or a pointer to an array? */
